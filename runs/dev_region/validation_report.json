@@ -1,0 +1,134 @@
+{
+  "check_count": 17,
+  "checks": [
+    {
+      "artifact_path": "runs/dev_region/pipeline_manifest.json",
+      "check_id": "pipeline_manifest_exists",
+      "message": "pipeline manifest found at runs/dev_region/pipeline_manifest.json",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/pipeline_manifest.json",
+      "check_id": "pipeline_manifest_type",
+      "message": "manifest_type is 'era5_land_pipeline_run'",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/pipeline_manifest.json",
+      "check_id": "pipeline_execution_status",
+      "message": "pipeline execution_status is 'completed_dry_run'",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/pipeline_manifest.json",
+      "check_id": "pipeline_step_count",
+      "message": "pipeline carries 8 steps",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/pipeline_manifest.json",
+      "check_id": "pipeline_step_order",
+      "message": "pipeline step_id order matches the canonical M008 sequence",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "check_id": "pipeline_step_outputs_exist",
+      "message": "every pipeline step's declared output_path exists on disk",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "check_id": "pipeline_step_output_hashes_match",
+      "message": "every pipeline step's output_hash matches the file bytes",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/pipeline_manifest.json",
+      "check_id": "pipeline_requires_network_false",
+      "message": "pipeline manifest declares requires_network = false",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "check_id": "region_id_consistent",
+      "message": "region_id consistent across downstream manifests: ['rbmn']",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "check_id": "region_geometry_hash_consistent",
+      "message": "region geometry hash consistent across downstream manifests: ['sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb']",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "check_id": "downstream_manifests_dry_run_only",
+      "message": "every downstream manifest declares mode=dry-run (where applicable) and requires_network=false",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region",
+      "check_id": "no_netcdf_files_in_output_root",
+      "message": "no NetCDF files under runs/dev_region",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/raw",
+      "check_id": "no_raw_directory",
+      "message": "no 'raw' directory under runs/dev_region",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/intermediate",
+      "check_id": "no_intermediate_directory",
+      "message": "no 'intermediate' directory under runs/dev_region",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/derived",
+      "check_id": "no_derived_directory",
+      "message": "no 'derived' directory under runs/dev_region",
+      "severity": "info",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/intermediate/daily",
+      "check_id": "daily_product_schemas",
+      "message": "no daily products to validate under runs/dev_region/intermediate/daily (dry-run state)",
+      "severity": "info",
+      "status": "skipped"
+    },
+    {
+      "artifact_path": "runs/dev_region/derived/indices",
+      "check_id": "index_product_schemas",
+      "message": "no index products to validate under runs/dev_region/derived/indices (dry-run state)",
+      "severity": "info",
+      "status": "skipped"
+    }
+  ],
+  "created_by": "scripts/06_validate_outputs.py",
+  "execution_status": "passed",
+  "failed_count": 0,
+  "manifest_type": "era5_land_validation_report",
+  "mode": "dry-run",
+  "output_root": "runs/dev_region",
+  "passed_count": 15,
+  "pipeline_manifest_hash": "sha256:3cff84947ba39baca0e28ad805c91f11e6ce6a93a8e5d5da29d0fbc3770c57c0",
+  "pipeline_manifest_path": "runs/dev_region/pipeline_manifest.json",
+  "region_geometry_hash": "sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb",
+  "region_id": "rbmn",
+  "requires_network": false,
+  "run_id": "dev_region",
+  "skipped_count": 2,
+  "warning_count": 0
+}

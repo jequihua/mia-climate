@@ -1,0 +1,47 @@
+{
+  "acquisition_manifest_hash": "sha256:ce78d96e20460cfe817618bdae48d4da43849046a130f117032b80ade22e5e93",
+  "acquisition_manifest_path": "runs/dev_region/acquisition_manifest_precipitation_dry_run.json",
+  "created_by": "scripts/03_preprocess_daily.py",
+  "deferred_count": 0,
+  "download_manifest_hash": "sha256:7615b1db3115ff18ab3c6629caae7e9dd575073afffaa761f6042de0aabe1d78",
+  "download_manifest_path": "runs/dev_region/download_manifest.json",
+  "execution_status": "planned_only",
+  "failed_count": 0,
+  "manifest_type": "era5_land_preprocessing_run",
+  "missing_input_count": 0,
+  "mode": "dry-run",
+  "output_root": "runs/dev_region",
+  "planned_count": 1,
+  "precipitation_policy": "legacy_utc_minus_7",
+  "preprocessed_count": 0,
+  "region_geometry_hash": "sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb",
+  "region_id": "rbmn",
+  "region_manifest_hash": "sha256:caae2f0b7b3520067ad404ed21befa2d3660ce6f0f7e1a2fd1572354330a7fe1",
+  "region_manifest_path": "runs/dev_region/region_manifest.json",
+  "request_count": 1,
+  "requires_network": false,
+  "results": [
+    {
+      "output_path": "runs/dev_region/intermediate/daily/pr/2000.nc",
+      "project_variable": "pr",
+      "reason": "source_not_found",
+      "request_id": "era5_hourly_pr__2000",
+      "source_chunks": [
+        {
+          "chunk_id": "H1",
+          "request_id": "era5_hourly_pr__2000_H1",
+          "source_path": "runs/dev_region/raw/era5_land/hourly_precipitation/2000_H1.nc"
+        },
+        {
+          "chunk_id": "H2",
+          "request_id": "era5_hourly_pr__2000_H2",
+          "source_path": "runs/dev_region/raw/era5_land/hourly_precipitation/2000_H2.nc"
+        }
+      ],
+      "source_path": "runs/dev_region/raw/era5_land/hourly_precipitation/2000_H1.nc",
+      "status": "planned",
+      "year": 2000
+    }
+  ],
+  "skipped_count": 0
+}

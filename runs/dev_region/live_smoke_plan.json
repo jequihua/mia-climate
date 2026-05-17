@@ -1,0 +1,217 @@
+{
+  "confirmation_token_required": "I_UNDERSTAND_THIS_USES_CDS",
+  "created_by": "scripts/07_run_live_smoke.py",
+  "execution_status": "ready_for_owner_authorized_live_test",
+  "manifest_type": "era5_land_live_smoke_plan",
+  "mode": "preflight",
+  "output_root": "runs/live_smoke_tmax_2000",
+  "planned_outputs": {
+    "SU_index_product": "runs/live_smoke_tmax_2000/derived/indices/SU.nc",
+    "TXx_index_product": "runs/live_smoke_tmax_2000/derived/indices/TXx.nc",
+    "raw_target_path": "runs/live_smoke_tmax_2000/raw/era5_land/daily_statistics/tmax/2000.nc",
+    "tmax_daily_product": "runs/live_smoke_tmax_2000/intermediate/daily/tmax/2000.nc"
+  },
+  "preflight_checks": [
+    {
+      "check_id": "canonical_manifests_present",
+      "message": "every canonical manifest is present and hashable (4 files)",
+      "status": "passed"
+    },
+    {
+      "check_id": "m009_validation_passed",
+      "message": "M009 validation reports execution_status='passed' against the canonical manifests",
+      "status": "passed"
+    },
+    {
+      "check_id": "request_in_download_manifest",
+      "message": "request_id 'era5_daily_stats__tmax__2000' found in download manifest",
+      "status": "passed"
+    },
+    {
+      "check_id": "request_in_allowlist",
+      "message": "request_id 'era5_daily_stats__tmax__2000' is in the M010 smoke allowlist",
+      "status": "passed"
+    },
+    {
+      "check_id": "output_root_is_scratch",
+      "message": "output_root 'runs/live_smoke_tmax_2000' is a scratch directory (not the canonical dev root)",
+      "status": "passed"
+    },
+    {
+      "check_id": "no_credentials_required_for_preflight",
+      "message": "preflight does not import cdsapi, does not read ~/.cdsapirc, and does not inspect CDSAPI_* env vars",
+      "status": "passed"
+    }
+  ],
+  "prerequisite_manifests": [
+    {
+      "hash": "sha256:caae2f0b7b3520067ad404ed21befa2d3660ce6f0f7e1a2fd1572354330a7fe1",
+      "name": "region_manifest",
+      "path": "runs/dev_region/region_manifest.json"
+    },
+    {
+      "hash": "sha256:7615b1db3115ff18ab3c6629caae7e9dd575073afffaa761f6042de0aabe1d78",
+      "name": "download_manifest",
+      "path": "runs/dev_region/download_manifest.json"
+    },
+    {
+      "hash": "sha256:3cff84947ba39baca0e28ad805c91f11e6ce6a93a8e5d5da29d0fbc3770c57c0",
+      "name": "pipeline_manifest",
+      "path": "runs/dev_region/pipeline_manifest.json"
+    },
+    {
+      "hash": "sha256:8fe2a400161870bc31e5de067f583f840344d991c01d9a4c7f25ed90636dbc67",
+      "name": "validation_report",
+      "path": "runs/dev_region/validation_report.json"
+    }
+  ],
+  "request": {
+    "cds_variables": [
+      "2m_temperature"
+    ],
+    "dataset": "derived-era5-land-daily-statistics",
+    "output_path": "raw/era5_land/daily_statistics/tmax/2000.nc",
+    "payload": {
+      "area": [
+        22.573077683788142,
+        -105.70053541497737,
+        21.741759030754736,
+        -105.2937762317876
+      ],
+      "daily_statistic": "daily_maximum",
+      "day": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ],
+      "frequency": "6_hourly",
+      "month": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ],
+      "time_zone": "utc-07:00",
+      "variable": [
+        "2m_temperature"
+      ],
+      "year": "2000"
+    },
+    "project_variables": [
+      "tmax"
+    ],
+    "request_id": "era5_daily_stats__tmax__2000",
+    "request_kind": "daily_statistics",
+    "year": 2000
+  },
+  "request_id": "era5_daily_stats__tmax__2000",
+  "requires_network": false,
+  "run_id": "live_smoke_tmax_2000",
+  "steps": [
+    {
+      "argv": [
+        "--download-manifest",
+        "runs/dev_region/download_manifest.json",
+        "--output",
+        "runs/live_smoke_tmax_2000/acquisition_manifest.json",
+        "--output-root",
+        "runs/live_smoke_tmax_2000",
+        "--mode",
+        "execute",
+        "--request-id",
+        "era5_daily_stats__tmax__2000"
+      ],
+      "description": "Download exactly one ERA5-Land daily-statistics request via cdsapi",
+      "exit_code": -1,
+      "script": "02_download_era5_land.py",
+      "status": "planned",
+      "step_id": "acquire_one_request"
+    },
+    {
+      "argv": [
+        "--acquisition-manifest",
+        "runs/live_smoke_tmax_2000/acquisition_manifest.json",
+        "--download-manifest",
+        "runs/dev_region/download_manifest.json",
+        "--region-manifest",
+        "runs/dev_region/region_manifest.json",
+        "--output",
+        "runs/live_smoke_tmax_2000/preprocessing_manifest.json",
+        "--output-root",
+        "runs/live_smoke_tmax_2000",
+        "--mode",
+        "execute"
+      ],
+      "description": "Preprocess the acquired daily-statistics NetCDF into a daily standard product",
+      "exit_code": -1,
+      "script": "03_preprocess_daily.py",
+      "status": "planned",
+      "step_id": "preprocess_one_request"
+    },
+    {
+      "argv": [
+        "--preprocessing-manifest",
+        "runs/live_smoke_tmax_2000/preprocessing_manifest.json",
+        "--output",
+        "runs/live_smoke_tmax_2000/index_manifest.json",
+        "--output-root",
+        "runs/live_smoke_tmax_2000",
+        "--mode",
+        "execute",
+        "--index-id",
+        "TXx",
+        "--index-id",
+        "SU"
+      ],
+      "description": "Compute the two tmax-only indices: ['TXx', 'SU']",
+      "exit_code": -1,
+      "script": "04_compute_indices.py",
+      "status": "planned",
+      "step_id": "indices_one_request"
+    },
+    {
+      "argv": [],
+      "description": "Validate the produced tmax / TXx / SU NetCDF schemas via M009 helpers",
+      "exit_code": -1,
+      "script": "(in-process lib.validation)",
+      "status": "planned",
+      "step_id": "validate_products"
+    }
+  ]
+}

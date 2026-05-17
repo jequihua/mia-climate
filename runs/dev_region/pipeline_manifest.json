@@ -1,0 +1,177 @@
+{
+  "config_hash": "sha256:a921a8a0bc05ba8023b687d2af19231f2da9faa0afdbe4115db02204af87de88",
+  "config_path": "configs/rbmn_local.json",
+  "created_by": "scripts/05_run_pipeline.py",
+  "execution_status": "completed_dry_run",
+  "failed_count": 0,
+  "manifest_type": "era5_land_pipeline_run",
+  "mode": "dry-run",
+  "output_root": "runs/dev_region",
+  "requires_network": false,
+  "run_id": "dev_region",
+  "skipped_count": 0,
+  "step_count": 8,
+  "steps": [
+    {
+      "argv": [
+        "--region-id",
+        "rbmn",
+        "--geometry",
+        "01_data/case_studies/rbmn.geojson",
+        "--output",
+        "runs/dev_region/region_manifest.json"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:caae2f0b7b3520067ad404ed21befa2d3660ce6f0f7e1a2fd1572354330a7fe1",
+      "output_path": "runs/dev_region/region_manifest.json",
+      "script": "00_validate_region.py",
+      "status": "succeeded",
+      "step_id": "validate_region"
+    },
+    {
+      "argv": [
+        "--region-manifest",
+        "runs/dev_region/region_manifest.json",
+        "--output",
+        "runs/dev_region/download_manifest.json",
+        "--start-year",
+        "2000",
+        "--end-year",
+        "2024"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:7615b1db3115ff18ab3c6629caae7e9dd575073afffaa761f6042de0aabe1d78",
+      "output_path": "runs/dev_region/download_manifest.json",
+      "script": "01_plan_downloads.py",
+      "status": "succeeded",
+      "step_id": "plan_downloads"
+    },
+    {
+      "argv": [
+        "--download-manifest",
+        "runs/dev_region/download_manifest.json",
+        "--output",
+        "runs/dev_region/acquisition_manifest.json",
+        "--output-root",
+        "runs/dev_region",
+        "--mode",
+        "dry-run",
+        "--limit",
+        "3"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:43bb21dffcc5f376862c925596b59ae4e32663650389838931b07283c51078c2",
+      "output_path": "runs/dev_region/acquisition_manifest.json",
+      "script": "02_download_era5_land.py",
+      "status": "succeeded",
+      "step_id": "acquire_daily_stats_dry_run"
+    },
+    {
+      "argv": [
+        "--download-manifest",
+        "runs/dev_region/download_manifest.json",
+        "--output",
+        "runs/dev_region/acquisition_manifest_precipitation_dry_run.json",
+        "--output-root",
+        "runs/dev_region",
+        "--mode",
+        "dry-run",
+        "--request-id",
+        "era5_hourly_pr__2000_H1",
+        "--request-id",
+        "era5_hourly_pr__2000_H2"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:ce78d96e20460cfe817618bdae48d4da43849046a130f117032b80ade22e5e93",
+      "output_path": "runs/dev_region/acquisition_manifest_precipitation_dry_run.json",
+      "script": "02_download_era5_land.py",
+      "status": "succeeded",
+      "step_id": "acquire_precipitation_dry_run"
+    },
+    {
+      "argv": [
+        "--acquisition-manifest",
+        "runs/dev_region/acquisition_manifest.json",
+        "--download-manifest",
+        "runs/dev_region/download_manifest.json",
+        "--region-manifest",
+        "runs/dev_region/region_manifest.json",
+        "--output",
+        "runs/dev_region/preprocessing_manifest.json",
+        "--output-root",
+        "runs/dev_region",
+        "--mode",
+        "dry-run"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:fd9a92c7bc91d2ae0790886b95d34a39e5c410621c70ec06c70d168f001810c7",
+      "output_path": "runs/dev_region/preprocessing_manifest.json",
+      "script": "03_preprocess_daily.py",
+      "status": "succeeded",
+      "step_id": "preprocess_daily_stats_dry_run"
+    },
+    {
+      "argv": [
+        "--acquisition-manifest",
+        "runs/dev_region/acquisition_manifest_precipitation_dry_run.json",
+        "--download-manifest",
+        "runs/dev_region/download_manifest.json",
+        "--region-manifest",
+        "runs/dev_region/region_manifest.json",
+        "--output",
+        "runs/dev_region/preprocessing_manifest_precipitation.json",
+        "--output-root",
+        "runs/dev_region",
+        "--mode",
+        "dry-run",
+        "--precipitation-policy",
+        "legacy_utc_minus_7"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:cf2f740389f2d80ace39703dbb095a0b1c01eae46c1a855229251e91947e62e9",
+      "output_path": "runs/dev_region/preprocessing_manifest_precipitation.json",
+      "script": "03_preprocess_daily.py",
+      "status": "succeeded",
+      "step_id": "preprocess_precipitation_dry_run"
+    },
+    {
+      "argv": [
+        "--preprocessing-manifest",
+        "runs/dev_region/preprocessing_manifest.json",
+        "--output",
+        "runs/dev_region/index_manifest.json",
+        "--output-root",
+        "runs/dev_region",
+        "--mode",
+        "dry-run"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:f2acaf70912c0404eb10d41d59b17b2ac8b505f50a11942e664b23aaba0b8862",
+      "output_path": "runs/dev_region/index_manifest.json",
+      "script": "04_compute_indices.py",
+      "status": "succeeded",
+      "step_id": "indices_temperature_dry_run"
+    },
+    {
+      "argv": [
+        "--preprocessing-manifest",
+        "runs/dev_region/preprocessing_manifest_precipitation.json",
+        "--output",
+        "runs/dev_region/index_manifest_precipitation.json",
+        "--output-root",
+        "runs/dev_region",
+        "--mode",
+        "dry-run",
+        "--index-family",
+        "precipitation"
+      ],
+      "exit_code": 0,
+      "output_hash": "sha256:5abbbc9c420a9469dd48edd627702ec213e1345371f20d67b071f89b32f019b5",
+      "output_path": "runs/dev_region/index_manifest_precipitation.json",
+      "script": "04_compute_indices.py",
+      "status": "succeeded",
+      "step_id": "indices_precipitation_dry_run"
+    }
+  ],
+  "succeeded_count": 8
+}

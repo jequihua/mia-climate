@@ -1,0 +1,40 @@
+{
+  "created_by": "scripts/02_download_era5_land.py",
+  "download_manifest_hash": "sha256:7615b1db3115ff18ab3c6629caae7e9dd575073afffaa761f6042de0aabe1d78",
+  "download_manifest_path": "runs/dev_region/download_manifest.json",
+  "downloaded_count": 0,
+  "execution_status": "planned_only",
+  "failed_count": 0,
+  "manifest_type": "era5_land_acquisition_run",
+  "mode": "dry-run",
+  "output_root": "runs/dev_region",
+  "planned_count": 3,
+  "region_geometry_hash": "sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb",
+  "region_id": "rbmn",
+  "request_count": 3,
+  "requires_network": false,
+  "results": [
+    {
+      "dataset": "derived-era5-land-daily-statistics",
+      "output_path": "raw/era5_land/daily_statistics/tmax/2000.nc",
+      "request_id": "era5_daily_stats__tmax__2000",
+      "status": "planned",
+      "target_path": "runs/dev_region/raw/era5_land/daily_statistics/tmax/2000.nc"
+    },
+    {
+      "dataset": "derived-era5-land-daily-statistics",
+      "output_path": "raw/era5_land/daily_statistics/tmax/2001.nc",
+      "request_id": "era5_daily_stats__tmax__2001",
+      "status": "planned",
+      "target_path": "runs/dev_region/raw/era5_land/daily_statistics/tmax/2001.nc"
+    },
+    {
+      "dataset": "derived-era5-land-daily-statistics",
+      "output_path": "raw/era5_land/daily_statistics/tmax/2002.nc",
+      "request_id": "era5_daily_stats__tmax__2002",
+      "status": "planned",
+      "target_path": "runs/dev_region/raw/era5_land/daily_statistics/tmax/2002.nc"
+    }
+  ],
+  "skipped_count": 0
+}

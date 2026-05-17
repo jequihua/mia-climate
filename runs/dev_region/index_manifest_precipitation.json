@@ -1,0 +1,97 @@
+{
+  "computed_count": 0,
+  "created_by": "scripts/04_compute_indices.py",
+  "execution_status": "planned_only",
+  "failed_count": 0,
+  "index_count": 7,
+  "manifest_type": "era5_land_index_run",
+  "missing_input_count": 0,
+  "mode": "dry-run",
+  "output_root": "runs/dev_region",
+  "planned_count": 7,
+  "preprocessing_manifest_hash": "sha256:cf2f740389f2d80ace39703dbb095a0b1c01eae46c1a855229251e91947e62e9",
+  "preprocessing_manifest_path": "runs/dev_region/preprocessing_manifest_precipitation.json",
+  "region_geometry_hash": "sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb",
+  "region_id": "rbmn",
+  "requires_network": false,
+  "results": [
+    {
+      "index_id": "PRCPTOT",
+      "output_path": "runs/dev_region/derived/indices/PRCPTOT.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "RX1day",
+      "output_path": "runs/dev_region/derived/indices/RX1day.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "R95p",
+      "output_path": "runs/dev_region/derived/indices/R95p.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "CDD",
+      "output_path": "runs/dev_region/derived/indices/CDD.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "CWD",
+      "output_path": "runs/dev_region/derived/indices/CWD.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "R10mm",
+      "output_path": "runs/dev_region/derived/indices/R10mm.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "R20mm",
+      "output_path": "runs/dev_region/derived/indices/R20mm.nc",
+      "required_variables": [
+        "pr"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/pr/2000.nc"
+      ],
+      "status": "planned"
+    }
+  ],
+  "skipped_count": 0
+}

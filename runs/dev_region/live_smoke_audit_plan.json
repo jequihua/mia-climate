@@ -1,0 +1,86 @@
+{
+  "allowed_indices": [
+    "TXx",
+    "SU"
+  ],
+  "allowed_request_ids": [
+    "era5_daily_stats__tmax__2000"
+  ],
+  "audit_checks_planned": [
+    "live_report_present",
+    "live_report_manifest_type",
+    "live_report_mode_execute",
+    "live_report_requires_network_true",
+    "live_report_request_id_matches",
+    "live_report_all_steps_succeeded",
+    "live_report_output_root_is_scratch",
+    "live_report_output_root_matches_expected_root",
+    "expected_products_present",
+    "daily_tmax_product_schema",
+    "TXx_index_product_schema",
+    "SU_index_product_schema"
+  ],
+  "confirmation_token_required": "I_UNDERSTAND_THIS_USES_CDS",
+  "created_by": "scripts/08_audit_live_smoke.py",
+  "execution_status": "ready_for_live_smoke_audit",
+  "expected_artifacts": {
+    "SU_index_path": "runs/live_smoke_tmax_2000/derived/indices/SU.nc",
+    "TXx_index_path": "runs/live_smoke_tmax_2000/derived/indices/TXx.nc",
+    "audit_report_path": "runs/live_smoke_tmax_2000/live_smoke_audit_report.json",
+    "daily_tmax_path": "runs/live_smoke_tmax_2000/intermediate/daily/tmax/2000.nc",
+    "live_report_path": "runs/live_smoke_tmax_2000/live_smoke_report.json",
+    "raw_target_path": "runs/live_smoke_tmax_2000/raw/era5_land/daily_statistics/tmax/2000.nc"
+  },
+  "expected_output_root": "runs/live_smoke_tmax_2000",
+  "manifest_type": "era5_land_live_smoke_audit",
+  "mode": "preflight",
+  "preflight_checks": [
+    {
+      "artifact_path": "runs/dev_region/live_smoke_plan.json",
+      "check_id": "m010_preflight_plan_present",
+      "message": "M010 preflight plan present and readable",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "runs/dev_region/live_smoke_plan.json",
+      "check_id": "m010_preflight_plan_ready",
+      "message": "M010 preflight plan execution_status='ready_for_owner_authorized_live_test'",
+      "status": "passed"
+    },
+    {
+      "artifact_path": "05_governance/reviews/review_m010_live_smoke_safety_corrections.md",
+      "check_id": "m010_safety_corrections_review_present",
+      "message": "M010 safety-corrections review present",
+      "status": "passed"
+    },
+    {
+      "check_id": "expected_output_root_is_scratch",
+      "message": "expected_output_root 'runs/live_smoke_tmax_2000' is a scratch directory",
+      "status": "passed"
+    },
+    {
+      "check_id": "no_credentials_required_for_audit_preflight",
+      "message": "audit preflight does not import cdsapi, does not read ~/.cdsapirc, and does not inspect CDSAPI_* env vars",
+      "status": "passed"
+    },
+    {
+      "check_id": "no_netcdf_required_for_audit_preflight",
+      "message": "audit preflight does not require NetCDF files on disk; full audit is the audit mode entry point",
+      "status": "passed"
+    }
+  ],
+  "prerequisite_artifacts": [
+    {
+      "hash": "sha256:d90108175630d4bfe67e05d8da187f43b2b263f58c033fedac2ca2535eb4c76c",
+      "name": "m010_live_smoke_plan",
+      "path": "runs/dev_region/live_smoke_plan.json"
+    },
+    {
+      "hash": "sha256:ec0554733f95233905331db72e82b5d6c596892be0b3c2e4ed2e3fe0236ce079",
+      "name": "m010_safety_corrections_review",
+      "path": "05_governance/reviews/review_m010_live_smoke_safety_corrections.md"
+    }
+  ],
+  "request_id": "era5_daily_stats__tmax__2000",
+  "requires_network": false
+}

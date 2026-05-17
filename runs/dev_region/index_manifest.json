@@ -1,0 +1,101 @@
+{
+  "computed_count": 0,
+  "created_by": "scripts/04_compute_indices.py",
+  "execution_status": "planned_only",
+  "failed_count": 0,
+  "index_count": 7,
+  "manifest_type": "era5_land_index_run",
+  "missing_input_count": 0,
+  "mode": "dry-run",
+  "output_root": "runs/dev_region",
+  "planned_count": 7,
+  "preprocessing_manifest_hash": "sha256:fd9a92c7bc91d2ae0790886b95d34a39e5c410621c70ec06c70d168f001810c7",
+  "preprocessing_manifest_path": "runs/dev_region/preprocessing_manifest.json",
+  "region_geometry_hash": "sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb",
+  "region_id": "rbmn",
+  "requires_network": false,
+  "results": [
+    {
+      "index_id": "Tmx",
+      "output_path": "runs/dev_region/derived/indices/Tmx.nc",
+      "reason": "required_variable_not_in_preprocessing_plan: ['tmean']",
+      "required_variables": [
+        "tmean"
+      ],
+      "source_paths": [],
+      "status": "planned"
+    },
+    {
+      "index_id": "Tmn",
+      "output_path": "runs/dev_region/derived/indices/Tmn.nc",
+      "reason": "required_variable_not_in_preprocessing_plan: ['tmean']",
+      "required_variables": [
+        "tmean"
+      ],
+      "source_paths": [],
+      "status": "planned"
+    },
+    {
+      "index_id": "TXx",
+      "output_path": "runs/dev_region/derived/indices/TXx.nc",
+      "required_variables": [
+        "tmax"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/tmax/2000.nc",
+        "runs/dev_region/intermediate/daily/tmax/2001.nc",
+        "runs/dev_region/intermediate/daily/tmax/2002.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "TNn",
+      "output_path": "runs/dev_region/derived/indices/TNn.nc",
+      "reason": "required_variable_not_in_preprocessing_plan: ['tmin']",
+      "required_variables": [
+        "tmin"
+      ],
+      "source_paths": [],
+      "status": "planned"
+    },
+    {
+      "index_id": "DTR",
+      "output_path": "runs/dev_region/derived/indices/DTR.nc",
+      "reason": "required_variable_not_in_preprocessing_plan: ['tmin']",
+      "required_variables": [
+        "tmax",
+        "tmin"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/tmax/2000.nc",
+        "runs/dev_region/intermediate/daily/tmax/2001.nc",
+        "runs/dev_region/intermediate/daily/tmax/2002.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "SU",
+      "output_path": "runs/dev_region/derived/indices/SU.nc",
+      "required_variables": [
+        "tmax"
+      ],
+      "source_paths": [
+        "runs/dev_region/intermediate/daily/tmax/2000.nc",
+        "runs/dev_region/intermediate/daily/tmax/2001.nc",
+        "runs/dev_region/intermediate/daily/tmax/2002.nc"
+      ],
+      "status": "planned"
+    },
+    {
+      "index_id": "TR",
+      "output_path": "runs/dev_region/derived/indices/TR.nc",
+      "reason": "required_variable_not_in_preprocessing_plan: ['tmin']",
+      "required_variables": [
+        "tmin"
+      ],
+      "source_paths": [],
+      "status": "planned"
+    }
+  ],
+  "skipped_count": 0
+}

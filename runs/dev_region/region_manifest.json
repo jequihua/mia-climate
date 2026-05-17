@@ -1,0 +1,23 @@
+{
+  "bbox_north_west_south_east": [
+    22.573077683788142,
+    -105.70053541497737,
+    21.741759030754736,
+    -105.2937762317876
+  ],
+  "bbox_west_south_east_north": [
+    -105.70053541497737,
+    21.741759030754736,
+    -105.2937762317876,
+    22.573077683788142
+  ],
+  "clip_policy": "polygon",
+  "created_by": "scripts/00_validate_region.py",
+  "feature_count": 1,
+  "geometry_hash": "sha256:832f37d3d07aef95203f7b03b21b6f4bc8b2bcc8ee0c290f8088bc9bf82748cb",
+  "geometry_path": "01_data/case_studies/rbmn.geojson",
+  "geometry_type": "MultiPolygon",
+  "normalized_crs": "EPSG:4326",
+  "region_id": "rbmn",
+  "source_crs": "urn:ogc:def:crs:OGC:1.3:CRS84"
+}
