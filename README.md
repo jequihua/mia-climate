@@ -24,7 +24,7 @@ The pipeline starts from a region polygon and builds a reproducible chain:
 Current development uses the canonical case-study polygon:
 
 ```text
-01_data/case_studies/rbmn.geojson
+data/rbmn.geojson
 ```
 
 This is the Marismas Nacionales Nayarit region polygon used for local tests
@@ -49,31 +49,14 @@ In scope:
 - Dry-run orchestration, validation, live-smoke readiness, and live-smoke
   audit tooling.
 
-Paused / out of current scope:
-
-- CHIRPS
-- Daymet
-- Livneh
-- WRF extraction / merge snippets
-- CHELSA, which does not appear in the reviewed legacy material
-- Docker, Google Cloud Storage, and Cloud Run execution
-- full 175-request live ERA5-Land execution
-- legacy-output numeric regression against archived NetCDF products
-- wind-derived indices and percentile / spell-duration temperature indices
-
-The legacy repository contains small CHIRPS, Daymet, Livneh, and WRF
-snippets, but the complete Python workflow being reimplemented here is
-ERA5-Land.
-
 ## Repository Layout
 
 ```text
 configs/
   rbmn_local.json
 
-01_data/
-  case_studies/
-    rbmn.geojson
+data/
+  rbmn.geojson
   data_sources.md
   storage_layout.md
 
